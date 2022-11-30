@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    min-width: 12.8rem;
+    max-width: 1920px;
+    min-height: 10rem;
+    background: url(../images/bg.png) no-repeat center center;
+    background-size: 100% 100%;
+    // background-color: #081832;
+}
+
+header {
+    height: 1.25rem;
+    //头部图片及文字
+    .center {
+        background: url(../images/header.png) no-repeat center center;
+        background-size: cover;
+        width: 17.5rem;
+        height: 1rem;
+        padding-right: .2rem;
+        margin: 0 auto;
+        text-align: center;
+
+        h1 {
+            font-size: 0.475rem;
+            color: #fff;
+            line-height: 0.85rem;
+        }
+    }
+    // 显示实时时间
+    .showTime {
+        position: absolute;
+        right: 0.375rem;
+        top: 0;
+        line-height: 0.9375rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.25rem;
+    }
+}
+
+// 页面主体盒子
+.mainbox {
+    display: flex;
+    min-width: 1024px;
+    max-width: 1920px;
+    min-height: 800px;
+    margin: 0 auto;
+    padding: 0.125rem 0.125rem 0;
+
+    // 页面主体的左中右部分框架
+    .column_left {
+        flex: 1;
+        margin-right: 0.3rem;
+    }
+
+    .column_middle {
+        flex: 2;
+    }
+
+    .column_right {
+        flex: 1;
+        margin-left: 0.3rem;
+    }
+
+    // 公共盒子
+    .panel {
+        height: 3.875rem;
+        padding: 0 0.1875rem 0.35rem;
+        margin-bottom: 0.375rem;
+        box-shadow: -10px 0px 15px #0657B6 inset,
+            0px -10px 15px #0657B6 inset,
+            10px 0px 15px #0657B6 inset,
+            0px 10px 15px #0657B6 inset;
+        // 公共盒子的标题
+        .panel-title {
+            position: relative;
+            border-radius: .2rem;
+            width: 50%;
+            height: .37rem;
+            top: -0.1875rem;
+            left: 25%;
+            background-color: #0657B6;
+            border-radius: 18px;
+            color: #ffffff;
+
+            h2 {
+                line-height: .37rem;
+                text-align: center;
+                font-size: 0.2rem;
+            }
+        }
+
+
+        .chart {
+            height: 3.375rem;
+        }
+    }
+
+    // 中间部分属性设置
+    .column_middle {
+        // 地图上方信息栏
+        .map-banner{
+            height: 0.5rem;
+            line-height: .5rem;
+            // 状态灯的green和red类
+            .green{
+                background-color: green;
+            }
+            .red{
+                background-color: red;
+            }
+            // 状态灯
+            .status-light{
+                float: right;
+                height: 0.3rem;
+                width: 0.3rem;
+                border-radius: 50%;
+                
+                margin: 0.1rem 0;  //垂直居中
+                text-align: right;
+            }
+            
+             // 测试用按钮
+            button#status-test{
+                float: right;
+                margin: 0.1rem 0; //垂直居中
+                width: 1.125rem;
+                line-height: .3rem;
+                border: none;
+                margin-right: .3rem;
+                background-color: #74e11cc0;
+                border-radius: 5px;
+                color: rgba(245, 249, 252, 0.826);
+                font-size: 14px;
+                font-weight: 900;  
+            }
+            button#status-test:hover{
+                color: #ff0e29;
+                background-color: #fff;
+            }
+            .status-text{
+                margin-left: .2rem;
+                float: right;
+                height: 0.3rem;
+                color: #fff;
+                font-weight: 900;
+            }
+        }
+        
+        // 地图及容器设置
+        .map-box{
+            height: 8.125rem;
+            margin-bottom: .375rem;
+            border: 2px solid #0c66cee5;
+            background-color: #1709ad2e;
+            padding: .3rem;
+            padding-top: 0;
+            #map-container {
+                height: 7.325rem;
+                margin: 0;
+            }
+        }
+        
+        // 地图下方传感器列表设置
+        .sentor-contanier {
+            height: 3.875rem;
+            border-radius: .2rem;
+            box-shadow: -10px 0px 15px #0657B6 inset,
+                0px -10px 15px #0657B6 inset,
+                10px 0px 15px #0657B6 inset,
+                0px 10px 15px #0657B6 inset;
+
+            .list-contanier {
+                width: 100%;
+                height: 100%;
+                padding: .2rem 0 .2rem 0;
+
+                // background-color: #fff;
+                .table1 {
+                    width: 100%;
+                    border-radius: .3rem;
+                    text-align: center;
+                    font-size: .2rem;
+                    color: #fff;
+                    border-collapse: collapse;
+
+                    thead {
+                        height: .4875rem;
+                        border-radius: .3rem;
+                        background-color: rgba(49, 83, 157, 0.3)
+                    }
+
+                    tbody {
+                        tr {
+                            height: .5rem;
+                        }
+
+                        tr:nth-child(odd) {
+                            background-color: rgba(25, 67, 105, .3);
+                        }
+
+                        tr:nth-child(even) {
+                            background-color: rgba(39, 90, 135, .3);
+                        }
+
+                        a {
+                            color: rgba(29, 123, 177, 0.903);
+                        }
+
+                        a:hover {
+
+                            color: #ff0e29;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 右侧部分
+    // 右一图表
+    .right-first {
+        .data-equipment {
+            color: #fff;
+
+            .equip-amount {
+                width: 4rem;
+                height: .8rem;
+                margin: .15rem auto;
+
+                .data_cage {
+                    display: block;
+                    background-image: url("../images/data_bg.png");
+                    height: 1rem;
+                    line-height: .75rem;
+                    width: .6rem;
+                    float: left;
+                    margin-left: 1px;
+                    color: #ff0e29;
+                    text-align: center;
+                    font-size: .45rem;
+                    font-weight: 900;
+                    background-repeat: no-repeat;
+                    background-size: 100%;
+                }
+
+                .funct_number {
+                    color: black;
+                }
+            }
+        }
+        // 右一echarts进度图表的容器
+        #chart-device{
+            height: 110px;
+        }
+    }
+    
+    .column_right{
+        // 右二视频
+        color: #fff;
+        #video{
+            width: 100%;
+            height: 90%;
+            background-color: #030b15;
+            object-fit: fill;
+        }
+        .btn-contanier{
+            width: 1.5rem;
+            margin: 0 auto;
+            margin-top: -6px;
+        }
+        #video-btn{
+            position: relative;
+            
+        }
+
+    }
+    
+}

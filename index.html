@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据可视化</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <!-- 头部盒子 -->
+    <header>
+        <div class="center">
+            <h1>综合监测平台</h1>
+        </div>
+        <div class="showTime"></div>
+      <script>
+        var t = null;
+        t = setTimeout(time, 1000); //开始运行
+        function time() {
+          clearTimeout(t); //清除定时器
+          dt = new Date();
+          var y = dt.getFullYear();
+          var mt = dt.getMonth() + 1;
+          var day = dt.getDate();
+          var h = dt.getHours(); //获取时
+          var m = dt.getMinutes(); //获取分
+          var s = dt.getSeconds(); //获取秒
+          document.querySelector(".showTime").innerHTML =
+            "当前时间：" +
+            y +
+            "年" +
+            mt +
+            "月" +
+            day +
+            "-" +
+            h +
+            "时" +
+            m +
+            "分" +
+            s +
+            "秒";
+          t = setTimeout(time, 1000); //设定定时器，循环运行
+        }
+    </script>
+    
+    </header>
+
+    <!-- 主体盒子 -->
+    <div class="mainbox">
+        <!-- 左侧主体 -->
+        <div class="column_left">
+            <!-- panel用于公共面板，第二个为每个独特的类名 -->
+            <!-- 左一图表 -->
+            <div class="panel  temperature">
+                <div class="panel-title">
+                    <h2>实时温度与湿度</h2>
+                </div>
+                
+                    <div class="chart"></div>
+            </div>
+
+            <!-- 左二图表 -->
+            <div class="panel air">
+                <div class="panel-title">
+                    <h2>空气分析</h2>
+                </div>
+                    <div class="chart"></div>
+            </div>
+
+            <!-- 左三图表 -->
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>近期数据</h2>
+                </div>
+                    <div class="chart  pastData">
+
+                    </div>
+            </div>
+        </div>
+        <!-- 中间部分 -->
+        <div class="column_middle">
+            <div class="map-box">
+            
+                <!-- 地图状态栏 -->
+                <div class="map-banner">
+                    
+                    <div class="status-text">一切正常</div>
+                    <div class="status-light green"></div>
+                    <!-- 测试用按钮（点击切换） -->
+                    <button type="button" id="status-test">点击切换</button>
+                </div>
+                <!-- 地图容器 -->
+                <div id="map-container">
+                
+            </div>
+            </div>
+            <!-- 存放传感器列表 -->
+            <div class="sentor-contanier">
+                <div class="list-contanier">
+                    <table class="table1"   >
+                        <thead>
+                            <tr>
+                                <th>编号</th>
+                                <th>地理位置</th>
+                                <th>状态</th>
+                                <th>地图位置</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>1</td>
+                                <td>郑州大学南核心教学楼4102教室</td>
+                                <td>正常</td>
+                                <th><a href="javrscript:;">定位</a></th>
+                            </tr>
+
+                            <tr>
+                                <td>1</td>
+                                <td>郑州大学南核心教学楼4102教室</td>
+                                <td>正常</td>
+                                <th><a href="javrscript:;">定位</a></th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>郑州大学南核心教学楼4102教室</td>
+                                <td>正常</td>
+                                <th><a href="javrscript:;">定位</a></th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>郑州大学南核心教学楼4102教室</td>
+                                <td>正常</td>
+                                <th><a href="javrscript:;">定位</a></th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>郑州大学南核心教学楼4102教室</td>
+                                <td>正常</td>
+                                <th><a href="javrscript:;">定位</a></th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>郑州大学南核心教学楼4102教室</td>
+                                <td>正常</td>
+                                <th><a href="javrscript:;">定位</a></th>
+                            </tr>
+                           
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧部分 -->
+        <div class="column_right">
+            <!-- 右一图表 -->
+            <div class="panel right-first">
+                <div class="panel-title">
+                    <h2>设备总览</h2>
+                </div>
+                <div class="data-equipment">
+                    <h2>接入设备数量</h2>
+                    <div class="equip-amount">
+                        <ul  class="data_show_box">
+                            <li class="data_cage">0</li>
+                            <li class="data_cage">0</li>
+                            <li class="data_cage" style="background-image: none;">,</li>
+                            <li class="data_cage funct_number">0</li>
+                            <li class="data_cage funct_number">1</li>
+                            <li class="data_cage funct_number">2</li>
+                        </ul>
+                    </div>
+                    <div id="chart-device"></div>
+                </div>
+                    
+            </div>
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>小车实时拍摄</h2>
+                </div>
+                <div class="btn-contanier">
+                    <input type="checkbox" id="video-btn" >获取摄像头</input>
+                </div>
+                 <video id='video'></video>
+            
+            </div>
+            <div class="panel">
+                <div class="panel-title">
+                    <h2>备用待定</h2>
+                </div>
+                    <div class="chart"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="./js/flexible.js"></script>
+    <script src="./lib/jquery.js"></script>
+    <script src="./js/video.js"></script>
+    <!-- echarts图表 -->
+    <script src="./lib/echarts.min.js"></script>
+    <script src="./js/echarts.js"></script>
+    <!-- 测试用js -->
+    <script src="./js/warning.js"></script>
+
+    <!-- 使用高德地图API -->
+    <script type="text/javascript"
+        src='https://webapi.amap.com/maps?v=1.4.15&key=b9cd08839407e7915bdef4e5ea97c91b&plugin=AMap.ToolBar'></script>
+    <script type="text/javascript" src="https://webapi.amap.com/demos/js/liteToolbar.js"></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('map-container', {
+            mapStyle: 'amap://styles/blue',
+            resizeEnable: true,
+            center: [116.518542, 39.924677],
+            zoom: 111
+        });
+        // 标记点的列表
+        var points = [[116.518542, 39.924677],[116.518842, 39.923977],[116.517842, 39.923977]]
+        // 创建一个 Marker 实例
+        for (let index = 0; index < points.length;index++) {
+            var marker = new AMap.Marker({
+                position: points[index],   // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+                title: '标记'
+            });
+            map.add(marker);
+        }
+        
+    </script>
+
+</body>
+
+</html>
